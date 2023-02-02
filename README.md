@@ -38,10 +38,6 @@ After you're finished please remove all the comments and instructions!
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -60,45 +56,13 @@ After you're finished please remove all the comments and instructions!
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 [vet-clinic-DATABASE] <a name="about-project"></a>
-
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
-
-## 🛠 Built With <a name="built-with"></a>
-
-### Tech Stack <a name="tech-stack"></a>
-
-> In this project a relational database is created to store the data for a vet clinic.
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[point in time recovery]**
-- **[granular access controls]**
-- **[asynchronous replication]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](./)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+**[vet-clinic-DATABASE]** 
+I use a relational database to create the data structure for a vet clinic. I will start with one table, and step by step, you will create a complete database with data about:
+animals
+animals' owners
+clinic employees
+visits
+Apart from building data structure, I will be challenged with tasks that require SQL queries to answer specific questions.
 
 <!-- GETTING STARTED -->
 

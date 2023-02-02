@@ -81,13 +81,3 @@ SELECT neutered, AVG(escape_attempts) as average_escape FROM animals GROUP BY ne
 SELECT species, MIN(weight_kg) as min_weight, MAX(weight_kg) as max_weight FROM animals GROUP BY species;
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT species, AVG(escape_attempts) as average_escape FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
-
--- Vet clinic database: query multiple tables
--- What animals belong to Melody Pond?
-SELECT animals.* FROM animals JOIN owners ON animals.owner_id = owners.id WHERE owners.full_name = 'Melody Pond';
--- List of all animals that are pokemon (their type is Pokemon).
-SELECT * FROM animals JOIN species ON animals.species_id = species.id WHERE species.name = 'Pokemon';
--- List all owners and their animals, remember to include those that don't own any animal.
-SELECT owners.*, animals.name FROM owners LEFT JOIN animals ON owners.id = animals.owner_id;
--- How many animals are there per species?
-SELECT species.name, COUNT(*) as animal_count FROM species JOIN animals ON animals.species_id = species.id GROUP BY species.name;
