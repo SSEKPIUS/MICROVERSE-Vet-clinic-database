@@ -100,7 +100,7 @@ SELECT a.* FROM animals a JOIN visits v ON a.id = v.animal_id JOIN vets vt ON vt
 -- How many different animals did Stephanie Mendez see?
 SELECT COUNT(DISTINCT a.id) FROM animals a JOIN visits v ON a.id = v.animal_id JOIN vets vt ON vt.id = v.vet_id WHERE vt.name = 'Stephanie Mendez';
 -- List all vets and their specialties, including vets with no specialties.
-vet_clinic=# SELECT v.name, sp.name FROM vets v  LEFT JOIN specializations s ON v.id = s.vet_id LEFT JOIN species sp ON sp.id = s.species_id ORDER BY v.name; \gdesc
+SELECT v.name, sp.name FROM vets v  LEFT JOIN specializations s ON v.id = s.vet_id LEFT JOIN species sp ON sp.id = s.species_id ORDER BY v.name; \gdesc
 -- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
 SELECT a.* FROM animals a JOIN visits v ON a.id = v.animal_id JOIN vets vt ON vt.id = v.vet_id WHERE vt.name = 'Stephanie Mendez' AND v.date BETWEEN '2020-04-01' AND '2020-08-30';
 -- What animal has the most visits to vets?
@@ -113,11 +113,3 @@ SELECT a.*, vt.*, v.date FROM animals a JOIN visits v ON a.id = v.animal_id JOIN
 SELECT COUNT(*)  FROM vets as vt LEFT JOIN visits as vs ON vt.id=vs.vet_id LEFT JOIN animals as a ON a.id=vs.animal_id WHERE a.id!=(SELECT a.id  FROM animals a JOIN visits v ON a.id = v.animal_id JOIN vets vt ON vt.id = v.vet_id WHERE vt.name = 'Maisy Smith' ORDER BY v.date LIMIT 1);
 -- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
 SELECT species.name AS specialse_on FROM visits JOIN vets ON visits.vet_id=vets.id JOIN animals ON visits.animal_id=animals.id JOIN species ON animals.species_id=species.id WHERE visits.vet_id = (SELECT id FROM vets WHERE name = 'Maisy Smith') GROUP BY species.name ORDER BY COUNT(visits.animal_id) DESC LIMIT 1;
-
-
-
-
-
-
-
-
