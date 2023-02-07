@@ -1,4 +1,6 @@
 /* Database schema to keep the structure of entire database. */
+\c
+DROP DATABASE vet_clinic;
 CREATE DATABASE vet_clinic;
 --USE vet_clinic;
 \c vet_clinic;
@@ -45,5 +47,15 @@ CREATE TABLE visits (
     animal_id INTEGER REFERENCES animals(id), 
     vet_id INTEGER REFERENCES vets(id), 
     date DATE);
+
+/* Vet clinic database: database performance audit */
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+ALTER TABLE visits RENAME COLUMN date TO date_of_visit DATE;
+
+-- optimise
+CREATE INDEX vet_id_index ON visits(vet_id ASC);
+CREATE INDEX email_index ON owners(email ASC);
+CREATE INDEX animal_id_index ON visits(animal_id ASC);
 
 \l+

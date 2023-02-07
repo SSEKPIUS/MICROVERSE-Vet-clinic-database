@@ -113,3 +113,8 @@ SELECT a.*, vt.*, v.date FROM animals a JOIN visits v ON a.id = v.animal_id JOIN
 SELECT COUNT(*)  FROM vets as vt LEFT JOIN visits as vs ON vt.id=vs.vet_id LEFT JOIN animals as a ON a.id=vs.animal_id WHERE a.id!=(SELECT a.id  FROM animals a JOIN visits v ON a.id = v.animal_id JOIN vets vt ON vt.id = v.vet_id WHERE vt.name = 'Maisy Smith' ORDER BY v.date LIMIT 1);
 -- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
 SELECT species.name AS specialse_on FROM visits JOIN vets ON visits.vet_id=vets.id JOIN animals ON visits.animal_id=animals.id JOIN species ON animals.species_id=species.id WHERE visits.vet_id = (SELECT id FROM vets WHERE name = 'Maisy Smith') GROUP BY species.name ORDER BY COUNT(visits.animal_id) DESC LIMIT 1;
+
+-- EXPLAIN ANALYZE
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
+EXPLAIN ANALYZE SELECT * FROM owners where email = 'owner_18327@mail.com';
